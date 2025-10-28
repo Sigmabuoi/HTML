@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trò đùa Cửa sổ Báo lỗi</title>
+    <style>
+        /* CSS đơn giản để trang web trông rõ ràng hơn */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            cursor: pointer; /* Thay đổi con trỏ chuột để gợi ý có thể nhấp */
+        }
+    </style>
+</head>
+<body>
+    <h1>Nhấp vào bất cứ đâu trên màn hình!</h1>
+    <p>(Đây chỉ là một trò đùa vui, không có lỗi thật đâu nhé!)</p>
+
+    <script>
+        // Hàm này sẽ được chạy khi người dùng nhấp vào màn hình
+        function createErrorAlerts() {
+            // **Tham số có thể điều chỉnh:**
+            const **NUMBER_OF_ALERTS** = 20; // Số lượng cửa sổ báo lỗi bạn muốn hiển thị
+            const **ALERT_MESSAGE** = "⚠️ Lỗi nghiêm trọng! Không thể tiếp tục công việc. Vui lòng nhấn OK nhiều lần để thử lại."; // Nội dung thông báo lỗi
+
+            console.log("Đã nhận sự kiện nhấp chuột. Bắt đầu hiển thị " + NUMBER_of_ALERTS + " cửa sổ thông báo...");
+
+            // Vòng lặp để tạo ra nhiều cửa sổ thông báo
+            for (let i = 0; i < **NUMBER_OF_ALERTS**; i++) {
+                // Hàm alert() tạo ra một cửa sổ thông báo nhỏ trên trình duyệt
+                // Người dùng phải nhấn OK để cửa sổ tiếp theo hiện ra.
+                alert(ALERT_MESSAGE + " (Cửa sổ: " + (i + 1) + "/" + NUMBER_OF_ALERTS + ")");
+            }
+
+            console.log("Đã hoàn tất hiển thị các cửa sổ thông báo.");
+        }
+
+        // Gắn hàm `createErrorAlerts` vào sự kiện `click` của toàn bộ phần body
+        document.body.addEventListener('click', createErrorAlerts);
+
+        // Lưu ý: Sau khi loạt alert đầu tiên kết thúc, bạn có thể nhấp chuột lại
+        // để kích hoạt lại các cửa sổ thông báo.
+    </script>
+</body>
+</html>
