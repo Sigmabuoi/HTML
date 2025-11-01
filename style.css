@@ -1,0 +1,133 @@
+/* Thiết lập chung */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif; /* Phông chữ dễ thương */
+    background-color: #ffe4e1; /* Nền màu Hồng Pastel (Misty Rose) */
+    color: #4a4a4a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Ẩn thanh cuộn không cần thiết */
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    z-index: 10; /* Đảm bảo nội dung nằm trên hiệu ứng pháo hoa */
+    padding: 20px;
+}
+
+/* Tiêu đề chính */
+.main-title {
+    font-family: 'Pacifico', cursive; /* Phông chữ viết tay, nổi bật */
+    font-size: 3em;
+    color: #ff69b4; /* Hồng đậm (Hot Pink) */
+    text-shadow: 3px 3px 0 #fff;
+    margin-bottom: 30px;
+    animation: bounce 1s infinite alternate; /* Hiệu ứng nảy nhẹ nhàng */
+}
+
+/* Hộp quà tương tác */
+.present-box {
+    background-color: #add8e6; /* Xanh Pastel (Light Blue) */
+    border: 5px solid #87cefa; /* Viền xanh đậm hơn */
+    padding: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 0 #4682b4;
+    box-shadow: 0 8px 0 #4682b4, 0 15px 20px rgba(0,0,0,0.1);
+}
+
+.present-box:hover {
+    transform: translateY(-5px) scale(1.05); /* Hiệu ứng nổi lên khi di chuột */
+    box-shadow: 0 12px 0 #4682b4, 0 20px 30px rgba(0,0,0,0.2);
+}
+
+/* Thẻ lời chúc */
+.message-card {
+    background-color: #fffaf0; /* Trắng ngà (Floral White) */
+    border: 3px dashed #ffc0cb; /* Viền hồng chấm chấm */
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    position: relative;
+    /* Hiệu ứng ban đầu */
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.message-card.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.recipient {
+    font-family: 'Pacifico', cursive;
+    color: #ff6347; /* Đỏ cam (Tomato) */
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.wish-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.signature {
+    font-style: italic;
+    color: #778899;
+    margin-top: 20px;
+    border-top: 1px solid #ffc0cb;
+    padding-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Hiệu ứng động nhẹ nhàng */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+/* Hiệu ứng lấp lánh nhỏ bên trong lời chúc */
+.sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: gold;
+    border-radius: 50%;
+    box-shadow: 0 0 5px gold, 0 0 10px yellow;
+    animation: twinkle 2s infinite alternate;
+}
+
+.message-card .sparkle:nth-child(1) { top: 10%; left: 5%; }
+.message-card .sparkle:nth-child(2) { bottom: 15%; right: 10%; animation-delay: 0.5s; }
+.message-card .sparkle:nth-child(3) { top: 30%; right: 40%; animation-delay: 1s; }
+
+@keyframes twinkle {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Thiết lập cho canvas pháo hoa (ẩn, chỉ hiện khi cần) */
+#birthdayCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none; /* Cho phép click xuyên qua canvas */
+}
