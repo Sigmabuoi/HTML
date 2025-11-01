@@ -2,50 +2,34 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Trò đùa Cửa sổ Báo lỗi</title>
-    <style>
-        /* CSS đơn giản để trang web trông rõ ràng hơn */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            cursor: pointer; /* Thay đổi con trỏ chuột để gợi ý có thể nhấp */
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật! 🎂</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Bấm vào màn hình!</h1>
-    <p>(Bấm đi đọc đéo gì !)</p>
 
-    <script>
-        // Hàm này sẽ được chạy khi người dùng nhấp vào màn hình
-        function createErrorAlerts() {
-            // **Tham số có thể điều chỉnh:**
-            const **NUMBER_OF_ALERTS** = 20; // Số lượng cửa sổ báo lỗi bạn muốn hiển thị
-            const **ALERT_MESSAGE** = "⚠️ Lỗi nghiêm trọng! Không thể tiếp tục công việc. Vui lòng nhấn OK nhiều lần để thử lại."; // Nội dung thông báo lỗi
+    <div class="container">
+        <h1 class="main-title">Chúc Mừng Sinh Nhật! 🎉</h1>
+        
+        <div class="present-box" id="presentBox">
+            <p>🎁 Bấm vào tớ nhé! 🎁</p>
+        </div>
 
-            console.log("Đã nhận sự kiện nhấp chuột. Bắt đầu hiển thị " + NUMBER_of_ALERTS + " cửa sổ thông báo...");
+        <div class="message-card hidden" id="messageCard">
+            <h2 class="recipient">Gửi [Tên người được chúc] ❤️</h2>
+            <p class="wish-text">
+                Chúc bạn một ngày sinh nhật thật vui vẻ, tràn ngập tiếng cười và những điều tốt đẹp nhất sẽ đến với bạn trong tuổi mới! Mãi mãi là một người tuyệt vời nhé!
+            </p>
+            <p class="signature">- Người gửi</p>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+        </div>
+    </div>
 
-            // Vòng lặp để tạo ra nhiều cửa sổ thông báo
-            for (let i = 0; i < **NUMBER_OF_ALERTS**; i++) {
-                // Hàm alert() tạo ra một cửa sổ thông báo nhỏ trên trình duyệt
-                // Người dùng phải nhấn OK để cửa sổ tiếp theo hiện ra.
-                alert(ALERT_MESSAGE + " (Cửa sổ: " + (i + 1) + "/" + NUMBER_OF_ALERTS + ")");
-            }
-
-            console.log("Đã hoàn tất hiển thị các cửa sổ thông báo.");
-        }
-
-        // Gắn hàm `createErrorAlerts` vào sự kiện `click` của toàn bộ phần body
-        document.body.addEventListener('click', createErrorAlerts);
-
-        // Lưu ý: Sau khi loạt alert đầu tiên kết thúc, bạn có thể nhấp chuột lại
-        // để kích hoạt lại các cửa sổ thông báo.
-    </script>
+    <canvas id="birthdayCanvas"></canvas>
+    
+    <script src="script.js"></script>
 </body>
 </html>
